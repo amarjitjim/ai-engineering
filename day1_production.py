@@ -1,8 +1,12 @@
 # day1_production.py
 # This pattern is what you'll use in EVERY real project
 
+from dotenv import load_dotenv
+import os
 import google.generativeai as genai
-genai.configure(api_key="AIzaSyBZvjKdIDvC92Awqu73_zNmKEyDUtfYCAE")  # paste your key here
+load_dotenv()
+# --- CONFIGURATION ---
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))  # paste your key here
 
 # --- SYSTEM PROMPT AS A VARIABLE (not hardcoded in the call) ---
 # Why? Because in production you swap this per client, per use case

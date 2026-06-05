@@ -1,10 +1,12 @@
 # day1_basics.py
 # pip install google-generativeai
 
+from dotenv import load_dotenv
+import os
 import google.generativeai as genai
-
+load_dotenv()
 # --- CONFIGURATION ---
-genai.configure(api_key="AIzaSyBZvjKdIDvC92Awqu73_zNmKEyDUtfYCAE")  # paste your key here
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))  # paste your key here
 
 # --- THE MODEL ---
 model = genai.GenerativeModel(
